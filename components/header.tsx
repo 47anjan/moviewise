@@ -113,7 +113,7 @@ const transition = {
   restSpeed: 0.001,
 };
 
-export const MenuItem = ({
+const MenuItem = ({
   setActive,
   active,
   item,
@@ -160,7 +160,7 @@ export const MenuItem = ({
   );
 };
 
-export const Menu = ({
+const Menu = ({
   setActive,
   children,
 }: {
@@ -177,7 +177,7 @@ export const Menu = ({
   );
 };
 
-export const ProductItem = ({
+const ProductItem = ({
   title,
   description,
   href,
@@ -209,11 +209,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+      className="text-neutral-700 dark:text-white hover:text-black "
     >
       {children}
     </Link>
