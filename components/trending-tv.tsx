@@ -3,8 +3,8 @@
 import { VideoCarousel } from "./video-carousel";
 import useTrending from "@/hooks/useTrending";
 
-const TrendingMovies = () => {
-  const { data, isLoading, error } = useTrending("movie");
+const TrendingTV = () => {
+  const { data, isLoading, error } = useTrending("tv");
   console.log(data);
 
   const movies = data?.data.results;
@@ -15,8 +15,8 @@ const TrendingMovies = () => {
 
   return (
     <div>
-      <VideoCarousel direction="right" movies={movies} />
+      <VideoCarousel direction="left" movies={movies} />
     </div>
   );
 };
-export default TrendingMovies;
+export default TrendingTV;

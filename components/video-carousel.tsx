@@ -1,13 +1,12 @@
 "use client";
 
-import { Movie } from "@/lib/movies";
-import { cn } from "@/lib/utils";
+import { Movie } from "@/lib/types";
+import { cn, getImage } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 export const VideoCarousel = ({
   direction = "right",
-  pauseOnHover = true,
   className,
   movies,
 }: {
@@ -56,7 +55,7 @@ export const VideoCarousel = ({
   };
   const getSpeed = () => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty("--animation-duration", "100s");
+      containerRef.current.style.setProperty("--animation-duration", "120s");
     }
   };
 
@@ -65,7 +64,7 @@ export const VideoCarousel = ({
       <div
         ref={containerRef}
         className={cn(
-          "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+          "scroller  relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
           className
         )}
       >
@@ -73,18 +72,17 @@ export const VideoCarousel = ({
           ref={scrollerRef}
           className={cn(
             " flex min-w-full shrink-0 gap-4  w-max flex-nowrap",
-            start && "animate-scroll ",
-            pauseOnHover && " hover:[animation-play-state:paused]"
+            start && "animate-scroll"
           )}
         >
-          {movies.map((movie, index) => (
+          {movies?.map((movie) => (
             <div
-              className="aspect-video  w-[40vw] shrink-0 md:w-[23vw]"
-              key={`${movie.name}-${index}`}
+              className="h-80 md:h-96 transition-all duration-700 md:hover:w-[26vw] w-[40vw]  shrink-0 md:w-[15vw]"
+              key={movie.id}
             >
               <img
-                className="h-full w-full rounded-xl object-cover"
-                src={movie.poster}
+                className="h-full w-full rounded-xl object-contain"
+                src={getImage(movie.poster_path)}
                 alt={movie.name}
               />
             </div>
