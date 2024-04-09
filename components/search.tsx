@@ -24,7 +24,7 @@ export function Search() {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>
-            <Input className="font-normal" placeholder="Search" />
+            <Input className="font-normal h-12 px-4" placeholder="Search" />
           </DrawerTitle>
         </DrawerHeader>
 

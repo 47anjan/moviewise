@@ -1,9 +1,10 @@
 "use client";
 
 import { Movie } from "@/lib/types";
-import { cn, getImage } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import TrendingCard from "./TrendingCard";
 
 export const VideoCarousel = ({
   direction = "right",
@@ -64,7 +65,7 @@ export const VideoCarousel = ({
       <div
         ref={containerRef}
         className={cn(
-          "scroller  relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+          "scroller  relative z-20  max-w-7xl   [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
           className
         )}
       >
@@ -76,16 +77,7 @@ export const VideoCarousel = ({
           )}
         >
           {movies?.map((movie) => (
-            <div
-              className="h-80 md:h-96 transition-all duration-700 md:hover:w-[26vw] w-[40vw]  shrink-0 md:w-[15vw]"
-              key={movie.id}
-            >
-              <img
-                className="h-full w-full rounded-xl object-contain"
-                src={getImage(movie.poster_path)}
-                alt={movie.name}
-              />
-            </div>
+            <TrendingCard key={movie.id} movie={movie} />
           ))}
         </div>
       </div>
