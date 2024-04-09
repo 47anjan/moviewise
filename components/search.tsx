@@ -8,12 +8,12 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Input } from "./ui/input";
 
 export function Search() {
   return (
@@ -23,12 +23,19 @@ export function Search() {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <DrawerTitle>
+            <Input className="font-normal" placeholder="Search" />
+          </DrawerTitle>
         </DrawerHeader>
+
+        <div className="p-4">sdfdsf</div>
         <DrawerFooter>
-          Submit
-          <DrawerClose>Cancel</DrawerClose>
+          <DrawerClose>
+            <button className="px-8 py-2 rounded-full relative bg-slate-700 text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600">
+              <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl  bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
+              <span className="relative z-20">Close</span>
+            </button>
+          </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
@@ -43,7 +50,6 @@ const SearchButton = () => {
     >
       <HoverBorderGradient
         containerClassName="rounded-full"
-        as="button"
         className=" dark:text-white flex items-center space-x-2"
       >
         <IconSearch size={32} />

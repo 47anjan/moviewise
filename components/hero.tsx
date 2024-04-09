@@ -5,7 +5,7 @@ import { Search } from "./search";
 
 export function Hero() {
   return (
-    <div className="min-h-screen bg-no-repeat  bg-center bg-cover bg-hero pt-10 w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="min-h-screen bg-no-repeat  bg-center bg-cover bg-hero pt-10 w-full bg-black flex flex-col items-center justify-center overflow-hidden ">
       <div className="relative">
         <div className="text-4xl  font-bold text-center text-white relative z-20">
           <Search />
